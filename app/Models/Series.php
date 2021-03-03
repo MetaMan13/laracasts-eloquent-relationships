@@ -4,18 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Video;
 
-class Post extends Model
+class Series extends Model
 {
     use HasFactory;
 
-    public function like()
+    public function videos()
     {
-
-    }
-
-    public function likes()
-    {
-        
+        return $this->morphMany(Video::class, 'watchable');
     }
 }
